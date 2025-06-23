@@ -55,7 +55,8 @@
 }
 
 .modal-content {
-  backdrop-filter: blur(60px);
+  backdrop-filter: blur(35px);
+  background-color: rgba(157, 168, 168, 0.041);
   padding: 3.3rem 7rem 4rem 7rem;
   border-radius: 18px;
   border-color: none;

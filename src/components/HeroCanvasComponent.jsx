@@ -12,18 +12,24 @@ const HeroCanvasComponent = () => {
     // console.log("Component mounted");
 
     // THE SCENE
+    
     const scene = new THREE.Scene();
     scene.background = new THREE.Color(0x000000);
-    scene.fog = new THREE.Fog(0x0034f0, 2, 6);
+    scene.fog = new THREE.Fog(0x0f34f0, 1, 7);
 
     let lavaMesh;
     // LOAD MODEL
     const loader = new GLTFLoader();
-    const modelPath = "/portfolio-v2/untitleddonut2.glb";
+
+    //HEADS UP THIS IS NOT THE CORRECT PATH TO THE MODEL
+
+    // const modelPath = "/portfolio-v2/untitleddonut2.glb";
+    const modelPath = "/portfolio-v2/src/assets/untitled.glb";
+    // const modelPath = "/portfolio-v2/src/assets/untitleddonut2.glb";
     loader.load(modelPath, function (gltf) {
       lavaMesh = gltf.scene;
       scene.add(lavaMesh);
-      lavaMesh.scale.set(2, 2, 2);
+      lavaMesh.scale.set(1, 1, 1);
       lavaMesh.position.set(0, 0, 0);
     });
 
@@ -43,13 +49,13 @@ const HeroCanvasComponent = () => {
     camera.position.z = 3;
 
     // THE LIGHT
-    const light = new THREE.DirectionalLight(0x11eeff, 3);
-    light.position.set(1, 1, 1);
-    scene.add(light);
+    // // Add a HemisphereLight for soft, natural fill
+    // const hemiLight = new THREE.HemisphereLight(0xffffff, 0x222233, 1000);
+    // scene.add(hemiLight);
 
-    const secondLight = new THREE.AmbientLight(0xffffff, 0.1);
-    scene.add(secondLight);
-
+    // // Optionally, add a little ambient light for even softer shadows
+    // const ambient = new THREE.AmbientLight(0xffffff, 0.2);
+    // scene.add(ambient);
     // THE RENDERER
     const renderer = new THREE.WebGLRenderer({ canvas: canvasRef.current });
     renderer.setSize(sizes.width, sizes.height);
