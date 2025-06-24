@@ -12,10 +12,21 @@ const HeroCanvasComponent = () => {
     // console.log("Component mounted");
 
     // THE SCENE
-    
+
     const scene = new THREE.Scene();
     scene.background = new THREE.Color(0x000000);
-    scene.fog = new THREE.Fog(0x0f34f0, 1, 7);
+    scene.fog = new THREE.Fog(0x0f34f0, 1, 8);
+
+    // Animate fog color from blue to magenta
+    gsap.to(scene.fog.color, {
+      r: 1, // Magenta (1, 0, 1)
+      g: 0,
+      b: 7,
+      duration: 10,
+      repeat: -1,
+      yoyo: true,
+      ease: "power1.inOut",
+    });
 
     let lavaMesh;
     // LOAD MODEL
