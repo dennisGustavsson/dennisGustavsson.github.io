@@ -35,8 +35,9 @@ const HeroCanvasComponent = () => {
     //HEADS UP THIS IS NOT THE CORRECT PATH TO THE MODEL
 
     // const modelPath = "/portfolio-v2/untitleddonut2.glb";
-    const modelPath = "/portfolio-v2/src/assets/untitled.glb";
+    // const modelPath = "/portfolio-v2/src/assets/untitled.glb";
     // const modelPath = "/portfolio-v2/src/assets/untitleddonut2.glb";
+    const modelPath = import.meta.env.BASE_URL + "assets/untitled.glb";
     loader.load(modelPath, function (gltf) {
       lavaMesh = gltf.scene;
       scene.add(lavaMesh);
