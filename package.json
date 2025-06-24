@@ -2,7 +2,7 @@
   "name": "portfolio-v2",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://dennisGustavsson.com",
+  "homepage": "https://dennisgustavsson.com",
   "type": "module",
   "scripts": {
     "predeploy": "npm run build",
