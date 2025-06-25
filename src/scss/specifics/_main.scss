@@ -111,13 +111,52 @@ nav {
       }
     }
     .description {
-      font-size: 1rem;
+      font-size: 1.2rem;
       font-style: italic;
       margin-top: 0.6rem;
+      line-height: 2rem;
 
       a {
         font-size: 1.6rem;
         margin-left: 1rem;
+        // background: hsl(0, 0%, 100%);
+        padding: 5px 5px;
+        position: relative;
+        border-radius: 3px;
+        box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.01);
+
+        &::after {
+          position: absolute;
+          content: "";
+          top: 0;
+          left: 0;
+          right: 0;
+          z-index: -1;
+          height: 100%;
+          width: 100%;
+          opacity: 0.8;
+          transform: scale(0.9) translateZ(0);
+          filter: blur(10px);
+          background: linear-gradient(
+            to left,
+
+            #c42da8,
+            #9e16c3,
+            #6501de,
+            #9e16c3,
+            #c42da8
+          );
+          background-size: 200% 200%;
+          animation: animateGlow 3s linear infinite;
+        }
+        @keyframes animateGlow {
+          0% {
+            background-position: 0% 50%;
+          }
+          100% {
+            background-position: 200% 50%;
+          }
+        }
       }
     }
   }
