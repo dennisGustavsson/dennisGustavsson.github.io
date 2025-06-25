@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { githubProjects } from "../assets/githubprojects";
-import { q } from "framer-motion/client";
+import { motion, AnimatePresence } from "framer-motion";
 
 const GitHubProjectsComponent = () => {
   // const specificRepos = [
@@ -46,22 +46,34 @@ const GitHubProjectsComponent = () => {
               target="_blank"
               rel="noopener noreferrer"
               onClick={(e) => {
-                e.preventDefault(); // Prevent the default link behavior
+                e.preventDefault();
                 handleProjectClick(project.id);
               }}
             >
               {project.name}
             </a>
-            {selectedProjectId === project.id && (
-              <>
-                <div className="description">
+            <AnimatePresence>
+              {selectedProjectId === project.id && (
+                <motion.div
+                  className="description"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 10 }}
+                  transition={{ duration: 0.3 }}
+                  key={project.id}
+                >
                   {project.description}
-                  <a className="ghBtn" href={project.url} target="_blank">
+                  <a
+                    className="ghBtn"
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <i className="fa-brands fa-github"></i>
                   </a>
-                </div>
-              </>
-            )}
+                </motion.div>
+              )}
+            </AnimatePresence>
           </li>
         ))}
       </ul>

@@ -32,18 +32,44 @@ const HeroCanvasComponent = () => {
     // LOAD MODEL
     const loader = new GLTFLoader();
 
-    //HEADS UP THIS IS NOT THE CORRECT PATH TO THE MODEL
 
-    // const modelPath = "/portfolio-v2/untitleddonut2.glb";
-    // const modelPath = "/portfolio-v2/src/assets/untitled.glb";
-    // const modelPath = "/portfolio-v2/src/assets/untitleddonut2.glb";
+    //model scale based on screenwidth
+    const setModelScaleBasedOnWidth = () => {
+      if (!lavaMesh) return;
+
+      let scale = 1;
+      const width = window.innerWidth;
+
+      if (width < 768) {
+        scale = 1;
+      } else if (width < 1200) {
+        scale = 1;
+      } else if (width > 1200) {
+        scale = 1.4;
+      }
+
+      lavaMesh.scale.set(scale, scale, scale);
+    };
+
     const modelPath = import.meta.env.BASE_URL + "assets/untitled.glb";
     loader.load(modelPath, function (gltf) {
       lavaMesh = gltf.scene;
       scene.add(lavaMesh);
-      lavaMesh.scale.set(1, 1, 1);
       lavaMesh.position.set(0, 0, 0);
+      setModelScaleBasedOnWidth();
     });
+
+    window.addEventListener("resize", () => {
+      sizes.width = window.innerWidth;
+      sizes.height = window.innerHeight;
+
+      camera.aspect = sizes.width / sizes.height;
+      camera.updateProjectionMatrix();
+      renderer.setSize(sizes.width, sizes.height);
+
+      setModelScaleBasedOnWidth();
+    });
+
 
     // SIZE
     const sizes = {
@@ -68,6 +94,7 @@ const HeroCanvasComponent = () => {
     // // Optionally, add a little ambient light for even softer shadows
     // const ambient = new THREE.AmbientLight(0xffffff, 0.2);
     // scene.add(ambient);
+    
     // THE RENDERER
     const renderer = new THREE.WebGLRenderer({ canvas: canvasRef.current });
     renderer.setSize(sizes.width, sizes.height);
@@ -133,7 +160,6 @@ const HeroCanvasComponent = () => {
     // Cleanup function
     return () => {
       document.removeEventListener("scroll", handleScroll);
-      // console.log("Scroll event listener removed");
     };
   }, []);
 
@@ -143,9 +169,6 @@ const HeroCanvasComponent = () => {
 
       <nav></nav>
       <h1 className="title">DENNIS GUSTAVSSON</h1>
-
-      {/* Add scrollable content */}
-      {/* <div style={{ height: "200vh" }}></div> */}
     </>
   );
 };
