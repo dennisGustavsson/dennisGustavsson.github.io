@@ -1,12 +1,12 @@
 import HeroCanvasComponent from "./components/HeroCanvasComponent";
-import TitleSection from "./sections/TitleSection";
+import AboutSection from "./sections/AboutSection";
 import "./style/App.min.css";
 
 function App() {
   return (
     <>
       <HeroCanvasComponent />
-      <TitleSection />
+      <AboutSection />
     </>
   );
 }

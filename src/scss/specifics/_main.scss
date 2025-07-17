@@ -45,8 +45,43 @@ nav {
   color: white;
   z-index: 2;
   display: flex;
+
   justify-content: center;
   align-items: center;
+
+  .aboutImage {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 0.6rem;
+    margin-top: 1rem;
+
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    box-shadow: 15px 15px 50px rgba(0, 0, 0, 0.2);
+    animation: blobbing 16s infinite;
+    overflow: hidden;
+    &:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes blobbing {
+      0% {
+        border-radius: 30% 60% 70% 30% / 30% 30% 70% 70%;
+        box-shadow: 15px 15px 50px rgba(0, 0, 0, 0.2);
+      }
+      25% {
+        border-radius: 58% 60% 75% 25% / 76% 50% 54% 40%;
+      }
+      50% {
+        border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%;
+        box-shadow: -10px -5px 50px rgba(0, 0, 0, 0.2);
+      }
+      75% {
+        border-radius: 36% 67% 58% 42% / 63% 68% 32% 37%;
+      }
+    }
+
+    //thanks-nickylew
+  }
 
   .text-container {
     display: flex;
@@ -68,8 +103,12 @@ nav {
       p {
         font-size: 1.2rem;
         text-align: center;
-        max-width: 80%;
+        line-height: 2.2rem;
+        max-width: 90%;
         margin-bottom: 1rem;
+        @include md {
+          max-width: 50%;
+        }
       }
     }
 

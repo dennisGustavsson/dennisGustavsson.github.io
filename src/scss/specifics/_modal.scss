@@ -64,9 +64,15 @@
   // transition: all 0.3s ease;
   // animation: modal-appear 0.6s ease-in-out;
 
-  .contact {
-    // color: black;
-    font-size: 1.7rem;
+  .contact-modal {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+
+    a {
+      font-size: 2rem;
+      margin-bottom: 0.6rem;
+    }
   }
 }
 .modal-appear {
