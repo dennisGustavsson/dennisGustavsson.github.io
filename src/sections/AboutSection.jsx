@@ -40,7 +40,7 @@ const AboutSection = () => {
           <div>
             <img
               className="aboutImage"
-              src={import.meta.env.BASE_URL + "assets/_DSC3309xtra_1.jpg"}
+              src={import.meta.env.BASE_URL + "assets/aboutportrait.jpg"}
               alt="Portrait"
             />
           </div>
