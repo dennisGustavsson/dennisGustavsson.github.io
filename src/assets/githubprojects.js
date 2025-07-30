@@ -5,14 +5,14 @@ export const githubProjects = [
     name: "SpeakScripter Frontend - Meeting Management Interface for SpeakScripter",
     description:
       "A user-friendly frontend application for managing meetings, participants, and audio files within the SpeakScripter system.",
-    url: "https://github.com/dennisGustavsson/SpeakScripterFrontend",
+    url: "https://github.com/dennisGustavsson/SpeakScripterFEPublic",
   },
   {
     id: 2,
     name: "SpeakScripter Backend - Automated Meeting Transcription & AI Summarization",
     description:
       "A robust backend service that transcribes meetings, recognizes speakers, and generates AI-powered summaries using Azure and OpenAI.",
-    url: "https://github.com/dennisGustavsson/SpeakScripterBackend",
+    url: "https://github.com/dennisGustavsson/SpeakScripterBEPublic",
   },
   {
     id: 3,
