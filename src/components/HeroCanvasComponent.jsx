@@ -32,7 +32,6 @@ const HeroCanvasComponent = () => {
     // LOAD MODEL
     const loader = new GLTFLoader();
 
-
     //model scale based on screenwidth
     const setModelScaleBasedOnWidth = () => {
       if (!lavaMesh) return;
@@ -70,7 +69,6 @@ const HeroCanvasComponent = () => {
       setModelScaleBasedOnWidth();
     });
 
-
     // SIZE
     const sizes = {
       width: window.innerWidth,
@@ -94,7 +92,7 @@ const HeroCanvasComponent = () => {
     // // Optionally, add a little ambient light for even softer shadows
     // const ambient = new THREE.AmbientLight(0xffffff, 0.2);
     // scene.add(ambient);
-    
+
     // THE RENDERER
     const renderer = new THREE.WebGLRenderer({ canvas: canvasRef.current });
     renderer.setSize(sizes.width, sizes.height);
@@ -156,6 +154,7 @@ const HeroCanvasComponent = () => {
     const tl = gsap.timeline({ defaults: { duration: 1 } });
     tl.fromTo("nav", { y: "-100%" }, { y: "0%" });
     tl.fromTo(".title", { opacity: 0 }, { opacity: 1 });
+    tl.fromTo(".text-box", { opacity: 0 }, { opacity: 1 });
 
     // Cleanup function
     return () => {

@@ -17,24 +17,6 @@ const GitHubProjectsComponent = () => {
     setSelectedProjectId(selectedProjectId === projectId ? null : projectId);
   };
 
-  // useEffect(() => {
-  //   const fetchRepos = async () => {
-  //     try {
-  //       const repoPromises = specificRepos.map((repo) =>
-  //         fetch(`https://api.github.com/repos/dennisGustavsson/${repo}`).then(
-  //           (response) => response.json()
-  //         )
-  //       );
-
-  //       const repoData = await Promise.all(repoPromises);
-  //       setProjects(repoData);
-  //     } catch (error) {
-  //       console.error("Error fetching GitHub repos:", error);
-  //     }
-  //   };
-
-  //   fetchRepos();
-  // }, []);
 
   return (
     <>

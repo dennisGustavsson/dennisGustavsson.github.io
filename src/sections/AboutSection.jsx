@@ -61,8 +61,14 @@ const AboutSection = () => {
           >
             <div className="contact-modal">
               <a href={`mailto:${email}`}>email me</a>
-              <a href="https://www.linkedin.com/in/dennisgustavsson-hello/">
+              <a
+                href="https://www.linkedin.com/in/dennisgustavsson-hello/"
+                target="_blank"
+              >
                 linkedin
+              </a>
+              <a href="https://www.github.com/dennisgustavsson" target="_blank">
+                github
               </a>
             </div>
           </ModalComponent>
